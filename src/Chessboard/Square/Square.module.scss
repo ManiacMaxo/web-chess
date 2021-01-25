@@ -1,0 +1,16 @@
+.root {
+    width: calc(100% / 8);
+    height: calc(100% / 8);
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+}
+
+.blue {
+    &-white {
+        background-color: #c5d5dc;
+    }
+    &-black {
+        background-color: #7a9db2;
+    }
+}

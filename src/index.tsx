@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './scss/index.scss'
+import Play from './Play/Play'
 
 const Home = React.lazy(() => import('./Home/Home'))
 
@@ -13,6 +14,11 @@ ReactDOM.render(
                 <Route exact path='/'>
                     <Suspense fallback='loading...'>
                         <Home />
+                    </Suspense>
+                </Route>
+                <Route exact path='/play'>
+                    <Suspense fallback='loading...'>
+                        <Play />
                     </Suspense>
                 </Route>
                 <Route path='/' render={() => <div>404</div>}></Route>

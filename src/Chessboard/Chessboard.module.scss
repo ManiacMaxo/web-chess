@@ -1,0 +1,44 @@
+.root {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    position: relative;
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.coordinates {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: bold;
+}
+
+.letters {
+    @extend .coordinates;
+    left: 10%;
+    bottom: 1%;
+    width: 89%;
+}
+
+.numbers {
+    @extend .coordinates;
+    top: 1%;
+    left: 1%;
+    height: 90%;
+    flex-direction: column;
+}
+
+.piece {
+    width: 100%;
+    z-index: 1;
+}

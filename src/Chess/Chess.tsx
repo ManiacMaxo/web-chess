@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import styles from './Chess.module.scss'
 import Chess from 'chess.js'
+import React, { useEffect, useState } from 'react'
 import Chessboard, { Theme } from '../Chessboard'
+import styles from './Chess.module.scss'
 
 interface Props {
     evaluate?: boolean

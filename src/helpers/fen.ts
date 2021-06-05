@@ -1,25 +1,7 @@
 export const ItemTypes = { PIECE: 'piece' }
 export const COLUMNS = 'abcdefgh'.split('')
 
-// export const constructPositionAttributes = (currentPosition, position) => {
-//     const difference = diff(currentPosition, position)
-//     const squaresAffected = difference.length
-//     const sourceSquare =
-//         difference && difference[1] && difference && difference[1].kind === 'D'
-//             ? difference[1].path && difference[1].path[0]
-//             : difference[0].path && difference[0].path[0]
-//     const targetSquare =
-//         difference && difference[1] && difference && difference[1].kind === 'D'
-//             ? difference[0] && difference[0].path[0]
-//             : difference[1] && difference[1].path[0]
-//     const sourcePiece =
-//         difference && difference[1] && difference && difference[1].kind === 'D'
-//             ? difference[1] && difference[1].lhs
-//             : difference[1] && difference[1].rhs
-//     return { sourceSquare, targetSquare, sourcePiece, squaresAffected }
-// }
-
-export const fenToObj = (fen) => {
+export const fenToObj = (fen: string) => {
     if (!validFen(fen)) return false
     // cut off any move, castling, etc info from the end
     // we're only interested in position information
@@ -53,7 +35,7 @@ export const fenToObj = (fen) => {
     return position
 }
 
-const expandFenEmptySquares = (fen) => {
+const expandFenEmptySquares = (fen: string) => {
     return fen
         .replace(/8/g, '11111111')
         .replace(/7/g, '1111111')
@@ -90,7 +72,7 @@ export const validFen = (fen: string) => {
 }
 
 // convert FEN piece code to bP, wK, etc
-const fenToPieceCode = (piece) => {
+const fenToPieceCode = (piece: string) => {
     // black piece
     if (piece.toLowerCase() === piece) {
         return 'b' + piece.toUpperCase()
@@ -145,7 +127,7 @@ const pieceCodeToFen = (piece: string) => {
 
 // position object to FEN string
 // returns false if the obj is not a valid position object
-export const objToFen = (obj) => {
+export const objToFen = (obj: any) => {
     if (!validPositionObject(obj)) return false
 
     let fen = ''
@@ -177,7 +159,7 @@ export const objToFen = (obj) => {
     return fen
 }
 
-export const getPositionObject = (position) => {
+export const getPositionObject = (position: string) => {
     if (position === 'start')
         return fenToObj('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')
     if (validFen(position)) return fenToObj(position)

@@ -1,29 +1,18 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
+import { JssProvider } from 'react-jss'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './scss/index.scss'
-import Play from './Play/Play'
-
-const Home = React.lazy(() => import('./Home/Home'))
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/'>
-                    <Suspense fallback='loading...'>
-                        <Home />
-                    </Suspense>
-                </Route>
-                <Route exact path='/play'>
-                    <Suspense fallback='loading...'>
-                        <Play />
-                    </Suspense>
-                </Route>
-                <Route path='/' render={() => <div>404</div>}></Route>
-            </Switch>
-        </BrowserRouter>
+        <JssProvider id={{ minify: true }}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </JssProvider>
     </React.StrictMode>,
     document.getElementById('root')
 )

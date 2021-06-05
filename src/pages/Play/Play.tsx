@@ -1,6 +1,6 @@
 import React from 'react'
-import Chess from '../Chess/Chess'
-import styles from './Play.module.scss'
+import Chess from '../../Chess'
+// import styles from './Play.module.scss'
 
 interface Props {}
 
